@@ -5,7 +5,7 @@
 # Contact: Inessa.DeAngelis@mail.utoronto.ca
 # License: MIT
 # Data set: https://www.lipad.ca/data/
-# Note: Reference https://www.parl.ca/LegisInfo/en/bill/42-1/c-65 to see which days/years/months the Bill was debated in the House and at committee
+# Note: Reference https://www.parl.ca/LegisInfo/en/bill/42-1/c-65 to see which days/years/months the Bill was debated in the House 
 
 #### Workspace setup ####
 library(tidyverse)
