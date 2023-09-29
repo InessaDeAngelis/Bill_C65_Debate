@@ -94,7 +94,7 @@ raw_feb_5 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018
          speakerparty,
          speakerriding,
          speakername) |>
-  filter(subtopic == "Canada Post")
+  filter(grepl('Bill C-65', speechtext))
 
 # Bill C-65 mentioned in QP, February 7, 2018 # 
 raw_feb_7 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/2/2018-2-7.csv")) |>
@@ -106,7 +106,7 @@ raw_feb_7 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018
          speakerparty,
          speakerriding,
          speakername) |>
-  filter(subtopic == "Canadian Armed Forces")
+  filter(grepl('Bill C-65', speechtext))
 
 # Bill C-65 mentioned during Gov't orders, March 1, 2018 # 
 raw_mar_1 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/3/2018-3-1.csv")) |>
@@ -118,7 +118,7 @@ raw_mar_1 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018
          speakerparty,
          speakerriding,
          speakername) |>
-  filter(speakername == "Rodger Cuzner")
+  filter(grepl('Bill C-65', speechtext))
 
 # Bill C-65 mentioned during QP, March 29, 2018 # 
 raw_mar_29 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/3/2018-3-29.csv")) |>
@@ -142,9 +142,9 @@ raw_apr_26 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/201
          speakerparty,
          speakerriding,
          speakername) |>
-  filter(subtopic == "Status of Women")
+  filter(grepl('Bill C-65', speechtext))
 
-# Bill C-65 mentioned during QP, April 26, 2018 # 
+# Bill C-65 mentioned during QP, April 30, 2018 # 
 raw_apr_30 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/4/2018-4-30.csv")) |>
   select(speechdate,
          speakeroldname,
@@ -154,7 +154,7 @@ raw_apr_30 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/201
          speakerparty,
          speakerriding,
          speakername) |>
-  filter(subtopic == "Workplace Safety")
+  filter(grepl('Bill C-65', speechtext))
 
 # Bill C-65 mentioned during QP, May 3, 2018 # 
 raw_may_3 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/5/2018-5-3.csv")) |>
@@ -204,6 +204,78 @@ raw_may_23 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/201
          speakername) |>
   filter(grepl('Bill C-65', speechtext))
 
+# Bill C-65 mentioned during Gov't orders, May 29, 2018 # 
+raw_may_29 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/5/2018-5-29.csv")) |>
+  select(speechdate,
+         speakeroldname,
+         maintopic,
+         subtopic,
+         speechtext,
+         speakerparty,
+         speakerriding,
+         speakername) |>
+  filter(grepl('Bill C-65', speechtext))
+
+# Bill C-65 mentioned during Gov't orders, Sep 24, 2018 # 
+raw_sep_24 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/9/2018-9-24.csv")) |>
+  select(speechdate,
+         speakeroldname,
+         maintopic,
+         subtopic,
+         speechtext,
+         speakerparty,
+         speakerriding,
+         speakername) |>
+  filter(grepl('Bill C-65', speechtext))
+
+# Bill C-65 mentioned during Gov't orders, Sep 27, 2018 # 
+raw_sep_27 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/9/2018-9-27.csv")) |>
+  select(speechdate,
+         speakeroldname,
+         maintopic,
+         subtopic,
+         speechtext,
+         speakerparty,
+         speakerriding,
+         speakername) |>
+  filter(grepl('Bill C-65', speechtext))
+
+# Bill C-65 mentioned during Gov't orders, Oct 1, 2018 # 
+raw_oct_1 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/10/2018-10-1.csv")) |>
+  select(speechdate,
+         speakeroldname,
+         maintopic,
+         subtopic,
+         speechtext,
+         speakerparty,
+         speakerriding,
+         speakername) |>
+  filter(grepl('Bill C-65', speechtext))
+
+# Bill C-65 mentioned during QP, Oct 4, 2018 # 
+raw_oct_4 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/10/2018-10-4.csv")) |>
+  select(speechdate,
+         speakeroldname,
+         maintopic,
+         subtopic,
+         speechtext,
+         speakerparty,
+         speakerriding,
+         speakername) |>
+  filter(grepl('Bill C-65', speechtext))
+
+# Bill C-65 mentioned during Gov't orders, Oct 15, 2018 # 
+raw_oct_15 <- read_delim_arrow(archive_read("lipadcsv-1.1.0.tar.bz2", "lipad/2018/10/2018-10-15.csv")) |>
+  select(speechdate,
+         speakeroldname,
+         maintopic,
+         subtopic,
+         speechtext,
+         speakerparty,
+         speakerriding,
+         speakername) |>
+  filter(grepl('Bill C-65', speechtext))
+
 #### Save data sets ####
 write_csv(x = raw_nov_7, file = "Inputs/Data/raw_nov_7.csv")
 
@@ -234,3 +306,15 @@ write_csv(x = raw_may_9, file = "Inputs/Data/raw_may_9.csv")
 write_csv(x = raw_may_11, file = "Inputs/Data/raw_may_11.csv")
 
 write_csv(x = raw_may_23, file = "Inputs/Data/raw_may_23.csv")
+
+write_csv(x = raw_may_29, file = "Inputs/Data/raw_may_29.csv")
+
+write_csv(x = raw_sep_24, file = "Inputs/Data/raw_sep_24.csv")
+
+write_csv(x = raw_sep_27, file = "Inputs/Data/raw_sep_27.csv")
+
+write_csv(x = raw_oct_1, file = "Inputs/Data/raw_oct_1.csv")
+
+write_csv(x = raw_oct_4, file = "Inputs/Data/raw_oct_4.csv")
+
+write_csv(x = raw_oct_15, file = "Inputs/Data/raw_oct_15.csv")
