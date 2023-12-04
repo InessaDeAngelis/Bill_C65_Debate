@@ -1,0 +1,32 @@
+---
+title: "Analyzing Parliamentary Discourse on Workplace Harassment: Gendered and Partisan Perspectives"
+author: 
+    - name: "Inessa De Angelis^[Faculty of Information, University of Toronto, Inessa.DeAngelis@mail.utoronto.ca]"
+thanks: "Code and data are available at: https://github.com/InessaDeAngelis/Bill_C65_Debate "
+date: "today"
+date-format: "long"
+abstract: "Write something here"
+format: pdf
+toc: true
+number-sections: true
+bibliography: references.bib
+csl: chicago-author-date.csl 
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+#### Workspace set-up ####
+## Load packages ##
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(here)
+library(ggplot2)
+
+## Read in data ##
+
+```
+
