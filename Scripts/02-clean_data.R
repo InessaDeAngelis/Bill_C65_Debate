@@ -135,6 +135,18 @@ GPC_cleaned_data =
   filter(speakerparty == "Green Party")
 GPC_cleaned_data
 
+## Create dataset of just female MPs ##
+female_mps_data =
+  cleaned_hansard_data |>
+  filter(speakergender == "Female")
+female_mps_data
+
+## Create dataset of just male MPs ##
+male_mps_data =
+  cleaned_hansard_data |>
+  filter(speakergender == "Male")
+male_mps_data
+
 #### Save datasets ####
 write_csv(x = cleaned_hansard_data, file = "Outputs/Data/cleaned_hansard_data.csv")
 
@@ -145,3 +157,7 @@ write_csv(x = CPC_cleaned_data, file = "Outputs/Data/CPC_cleaned_data.csv")
 write_csv(x = NDP_cleaned_data, file = "Outputs/Data/NDP_cleaned_data.csv")
 
 write_csv(x = GPC_cleaned_data, file = "Outputs/Data/GPC_cleaned_data.csv")
+
+write_csv(x = female_mps_data, file = "Outputs/Data/female_mps_cleaned_data.csv")
+
+write_csv(x = male_mps_data, file = "Outputs/Data/male_mps_cleaned_data.csv")
