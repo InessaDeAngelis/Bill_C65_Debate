@@ -79,8 +79,6 @@ hansard_topics <- read_rds(file = "Outputs/Model/hansard_topics.rda")
 ## View model ##
 labelTopics(hansard_topics)
 
-estimateEffect(hansard_topics)
-
 plot(hansard_topics, type = "summary", text.cex = 0.5)
 
 #### Female MPs ####
@@ -282,3 +280,5 @@ ndp_mps_topics <- read_rds(file = "Outputs/Model/ndp_mps_topics.rda")
 labelTopics(ndp_mps_topics)
 
 plot(ndp_mps_topics, type = "summary", text.cex = 0.5)
+
+topfeatures(male_mps_dfm, n = 20, scheme = "docfreq")

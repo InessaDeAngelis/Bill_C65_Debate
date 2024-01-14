@@ -5,7 +5,7 @@ author:
 thanks: "Code and data are available at: https://github.com/InessaDeAngelis/Bill_C65_Debate "
 date: "today"
 date-format: "long"
-abstract: "Write something here"
+abstract: "Write something interesting here."
 format: pdf
 toc: true
 number-sections: true
@@ -23,10 +23,41 @@ csl: chicago-author-date.csl
 library(tidyverse)
 library(knitr)
 library(kableExtra)
-library(here)
 library(ggplot2)
+library(stm)
+library(here)
 
 ## Read in data ##
+# Full corpus model
+hansard_topics <- readRDS(here::here("Outputs/Model/hansard_topics.rda"))
+
+# Female MPs model
+female_mps_topics <- readRDS(here::here("Outputs/Model/female_mps_topics.rda"))
+
+# Male MPs model
+male_mps_topics <- readRDS(here::here("Outputs/Model/male_mps_topics.rda"))
+
+#LPC model
+lpc_mps_topics <- readRDS(here::here("Outputs/Model/lpc_mps_topics.rda"))
+
+#CPC model
+cpc_mps_topics <- readRDS(here::here("Outputs/Model/cpc_mps_topics.rda"))
+
+# NDP model
+ndp_mps_topics <- readRDS(here::here("Outputs/Model/ndp_mps_topics.rda"))
 
 ```
 
+# Introduction
+
+# Background
+
+# Data 
+
+# Results
+
+# Discussion
+
+# Conclusion 
+
+# References 
