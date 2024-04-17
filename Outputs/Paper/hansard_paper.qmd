@@ -8,7 +8,7 @@ date-format: "long"
 abstract: "Write something interesting here."
 format: pdf
 toc: true
-number-sections: true
+number-sections: false
 bibliography: references.bib
 csl: chicago-author-date.csl 
 ---
@@ -52,7 +52,7 @@ ndp_mps_topics <- readRDS(here::here("Outputs/Model/ndp_mps_topics.rda"))
 
 # Background
 
-# Data 
+# Methods
 
 # Results
 

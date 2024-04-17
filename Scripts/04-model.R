@@ -8,6 +8,7 @@
   # 01-download_data.R
   # 02-clean_data.R
   # 03-test_data.R
+# Note: Do not create a GPC specific model because there are not enough interventions 
 
 #### Workspace setup ####
 library(tidyverse)
@@ -32,12 +33,12 @@ show_col_types = FALSE
 NDP_cleaned_data <- read_csv("Outputs/Data/NDP_cleaned_data.csv")
 show_col_types = FALSE
 
-# Read in the Female MPs data #
-female_mps_data <- read_csv("Outputs/Data/female_mps_cleaned_data.csv")
+# Read in the Women MPs data #
+women_mps_data <- read_csv("Outputs/Data/women_mps_cleaned_data.csv")
 show_col_types = FALSE
 
-# Read in the Male MPs data #
-male_mps_data <- read_csv("Outputs/Data/male_mps_cleaned_data.csv")
+# Read in the Men MPs data #
+men_mps_data <- read_csv("Outputs/Data/men_mps_cleaned_data.csv")
 show_col_types = FALSE
 
 #### Main (entire hansard corpus) ####
@@ -45,7 +46,7 @@ show_col_types = FALSE
 # Code to omit "Mr. / Madam Speaker referenced from: https://quanteda.io/reference/dfm_select.html
 hansard_corpus <-
   corpus(cleaned_hansard_data, 
-         text_field = "speechtext")
+         text_field = "text")
 hansard_corpus
 
 toks <- tokens(hansard_corpus)
@@ -77,25 +78,25 @@ write_rds(hansard_topics, file = "Outputs/Model/hansard_topics.rda")
 hansard_topics <- read_rds(file = "Outputs/Model/hansard_topics.rda")
 
 ## View model ##
-labelTopics(hansard_topics)
+labelTopics(hansard_topics, 10)
 
 plot(hansard_topics, type = "summary", text.cex = 0.5)
 
-#### Female MPs ####
+#### Women MPs ####
 ## Prepare text ## 
-female_mps_corpus <-
-  corpus(female_mps_data, 
-         text_field = "speechtext")
-female_mps_corpus
+women_mps_corpus <-
+  corpus(women_mps_data, 
+         text_field = "text")
+women_mps_corpus
 
-toks <- tokens(female_mps_corpus)
+toks <- tokens(women_mps_corpus)
 
 # Create custom list of stop words #
 mystopwords <- c("mr", "madam", "speaker")
 char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
 
-female_mps_dfm <-
-  female_mps_corpus |>
+women_mps_dfm <-
+  women_mps_corpus |>
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
@@ -105,37 +106,37 @@ female_mps_dfm <-
   dfm_remove(stopwords(source = "snowball")) |>
   dfm_remove(mystopwords)
 
-female_mps_dfm
+women_mps_dfm
 
 ## Make model ##
-female_mps_topics <- stm(documents = female_mps_dfm, K = 10)
+women_mps_topics <- stm(documents = women_mps_dfm, K = 10)
 
 ## Save model ##
-write_rds(female_mps_topics, file = "Outputs/Model/female_mps_topics.rda")
+write_rds(women_mps_topics, file = "Outputs/Model/women_mps_topics.rda")
 
 ## Read in model ##
-female_mps_topics <- read_rds(file = "Outputs/Model/female_mps_topics.rda")
+women_mps_topics <- read_rds(file = "Outputs/Model/women_mps_topics.rda")
 
 ## View model ##
-labelTopics(female_mps_topics)
+labelTopics(women_mps_topics)
 
-plot(female_mps_topics, type = "summary", text.cex = 0.5)
+plot(women_mps_topics, type = "summary", text.cex = 0.5)
 
-#### Male MPs ####
+#### Men MPs ####
 ## Prepare text ## 
-male_mps_corpus <-
-  corpus(male_mps_data, 
-         text_field = "speechtext")
-male_mps_corpus
+men_mps_corpus <-
+  corpus(men_mps_data, 
+         text_field = "text")
+men_mps_corpus
 
-toks <- tokens(male_mps_corpus)
+toks <- tokens(men_mps_corpus)
 
 # Create custom list of stop words #
 mystopwords <- c("mr", "madam", "speaker")
 char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
 
-male_mps_dfm <-
-  male_mps_corpus |>
+men_mps_dfm <-
+  men_mps_corpus |>
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
@@ -145,27 +146,27 @@ male_mps_dfm <-
   dfm_remove(stopwords(source = "snowball")) |>
   dfm_remove(mystopwords)
 
-male_mps_dfm
+men_mps_dfm
 
 ## Make model ##
-male_mps_topics <- stm(documents = male_mps_dfm, K = 10)
+men_mps_topics <- stm(documents = men_mps_dfm, K = 10)
 
 ## Save model ##
-write_rds(male_mps_topics, file = "Outputs/Model/male_mps_topics.rda")
+write_rds(men_mps_topics, file = "Outputs/Model/men_mps_topics.rda")
 
 ## Read in model ##
-male_mps_topics <- read_rds(file = "Outputs/Model/male_mps_topics.rda")
+men_mps_topics <- read_rds(file = "Outputs/Model/men_mps_topics.rda")
 
 ## View model ##
-labelTopics(male_mps_topics)
+labelTopics(men_mps_topics)
 
-plot(male_mps_topics, type = "summary", text.cex = 0.5)
+plot(men_mps_topics, type = "summary", text.cex = 0.5)
 
 #### Liberal MPs ####
 ## Prepare text ## 
 LPC_mps_corpus <-
   corpus(LPC_cleaned_data, 
-         text_field = "speechtext")
+         text_field = "text")
 LPC_mps_corpus
 
 toks <- tokens(LPC_mps_corpus)
@@ -205,7 +206,7 @@ plot(lpc_mps_topics, type = "summary", text.cex = 0.5)
 ## Prepare text ## 
 CPC_mps_corpus <-
   corpus(CPC_cleaned_data, 
-         text_field = "speechtext")
+         text_field = "text")
 CPC_mps_corpus
 
 toks <- tokens(CPC_mps_corpus)
@@ -245,7 +246,7 @@ plot(cpc_mps_topics, type = "summary", text.cex = 0.5)
 ## Prepare text ## 
 NDP_mps_corpus <-
   corpus(NDP_cleaned_data, 
-         text_field = "speechtext")
+         text_field = "text")
 NDP_mps_corpus
 
 toks <- tokens(NDP_mps_corpus)
@@ -276,9 +277,7 @@ write_rds(ndp_mps_topics, file = "Outputs/Model/ndp_mps_topics.rda")
 ## Read in model ##
 ndp_mps_topics <- read_rds(file = "Outputs/Model/ndp_mps_topics.rda")
 
-## View model ##
+## View model ##s
 labelTopics(ndp_mps_topics)
 
 plot(ndp_mps_topics, type = "summary", text.cex = 0.5)
-
-topfeatures(male_mps_dfm, n = 20, scheme = "docfreq")

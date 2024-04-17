@@ -34,118 +34,131 @@ cleaned_hansard_data =
       speakeroldname == "The Assistant Deputy Speaker (Mr. Anthony Rota)" |
       speakeroldname == "The Speaker")
   ) |>
-  mutate(speakergender = case_when( # Add column with speaker gender, referencing: https://www.ourcommons.ca/Members/en/search?parliament=42
-    startsWith(speakername, "Patty") ~ "Female",
-    startsWith(speakername, "Pam") ~ "Female",
-    startsWith(speakername, "Cheryl") ~ "Female",
-    startsWith(speakername, "Carla") ~ "Female",
-    startsWith(speakername, "Karine") ~ "Female",
-    startsWith(speakername, "Anita") ~ "Female",
-    startsWith(speakername, "Tracey") ~ "Female",
-    startsWith(speakername, "Michelle") ~ "Female",
-    startsWith(speakername, "Sylvie") ~ "Female",
-    startsWith(speakername, "Linda") ~ "Female",
-    startsWith(speakername, "Kate") ~ "Female",
-    startsWith(speakername, "Hedy") ~ "Female",
-    startsWith(speakername, "Rachael") ~ "Female",
-    startsWith(speakername, "Karen") ~ "Female",
-    startsWith(speakername, "Sheila") ~ "Female",
-    startsWith(speakername, "Irene") ~ "Female",
-    startsWith(speakername, "Filomena") ~ "Female",
-    startsWith(speakername, "Anju") ~ "Female",
-    startsWith(speakername, "Anne") ~ "Female",
-    startsWith(speakername, "Mona") ~ "Female",
-    startsWith(speakername, "Elizabeth") ~ "Female",
-    startsWith(speakername, "Rachel") ~ "Female",
-    startsWith(speakername, "Cathay") ~ "Female",
-    startsWith(speakername, "Cathy") ~ "Female",
-    startsWith(speakername, "Candice") ~ "Female",
-    startsWith(speakername, "Julie") ~ "Female",
-    startsWith(speakername, "Sheri") ~ "Female",
-    startsWith(speakername, "Kelly") ~ "Female",
-    startsWith(speakername, "Bardish") ~ "Female",
-    startsWith(speakername, "Emmanuella") ~ "Female",
-    startsWith(speakername, "Lisa") ~ "Female",
-    startsWith(speakername, "Eva") ~ "Female",
-    startsWith(speakername, "Rosemarie") ~ "Female",
-    startsWith(speakername, "Celina") ~ "Female",
-    startsWith(speakername, "Judy") ~ "Female",
-    startsWith(speakername, "Marilyn") ~ "Female",
-    startsWith(speakername, "Kevin") ~ "Male", # go on to male MPs
-    startsWith(speakername, "John") ~ "Male",
-    startsWith(speakername, "Mark") ~ "Male",
-    startsWith(speakername, "TJ") ~ "Male",
-    startsWith(speakername, "Pat") ~ "Male",
-    startsWith(speakername, "Harjit") ~ "Male",
-    startsWith(speakername, "Steven") ~ "Male",
-    startsWith(speakername, "Arnold") ~ "Male",
-    startsWith(speakername, "Garnett") ~ "Male",
-    startsWith(speakername, "Pierre") ~ "Male",
-    startsWith(speakername, "Sean") ~ "Male",
-    startsWith(speakername, "Randy") ~ "Male",
-    startsWith(speakername, "Ted") ~ "Male",
-    startsWith(speakername, "Jim") ~ "Male",
-    startsWith(speakername, "Nick") ~ "Male",
-    startsWith(speakername, "Joël") ~ "Male",
-    startsWith(speakername, "Ken") ~ "Male",
-    startsWith(speakername, "Gérard") ~ "Male",
-    startsWith(speakername, "Fayçal") ~ "Male",
-    startsWith(speakername, "Todd") ~ "Male",
-    startsWith(speakername, "Terry") ~ "Male",
-    startsWith(speakername, "Bryan") ~ "Male",
-    startsWith(speakername, "Alupa") ~ "Male",
-    startsWith(speakername, "Rodger") ~ "Male",
-    startsWith(speakername, "Lloyd") ~ "Male",
-    startsWith(speakername, "Jati") ~ "Male",
-    startsWith(speakername, "Richard") ~ "Male",
-    startsWith(speakername, "Angelo") ~ "Male",
-    startsWith(speakername, "Harold") ~ "Male",
-    startsWith(speakername, "Robert") ~ "Male",
-    startsWith(speakername, "Ed") ~ "Male",
-    startsWith(speakername, "Gord") ~ "Male",
-    startsWith(speakername, "François") ~ "Male",
-    startsWith(speakername, "Rémi") ~ "Male",
-    startsWith(speakername, "Tom") ~ "Male",
+  mutate(speaker_gender = case_when( # Add column with speaker gender, referencing: https://www.ourcommons.ca/Members/en/search?parliament=42
+    startsWith(speakername, "Patty") ~ "Woman",
+    startsWith(speakername, "Pam") ~ "Woman",
+    startsWith(speakername, "Cheryl") ~ "Woman",
+    startsWith(speakername, "Carla") ~ "Woman",
+    startsWith(speakername, "Karine") ~ "Woman",
+    startsWith(speakername, "Anita") ~ "Woman",
+    startsWith(speakername, "Tracey") ~ "Woman",
+    startsWith(speakername, "Michelle") ~ "Woman",
+    startsWith(speakername, "Sylvie") ~ "Woman",
+    startsWith(speakername, "Linda") ~ "Woman",
+    startsWith(speakername, "Kate") ~ "Woman",
+    startsWith(speakername, "Hedy") ~ "Woman",
+    startsWith(speakername, "Rachael") ~ "Woman",
+    startsWith(speakername, "Karen") ~ "Woman",
+    startsWith(speakername, "Sheila") ~ "Woman",
+    startsWith(speakername, "Irene") ~ "Woman",
+    startsWith(speakername, "Filomena") ~ "Woman",
+    startsWith(speakername, "Anju") ~ "Woman",
+    startsWith(speakername, "Anne") ~ "Woman",
+    startsWith(speakername, "Mona") ~ "Woman",
+    startsWith(speakername, "Elizabeth") ~ "Woman",
+    startsWith(speakername, "Rachel") ~ "Woman",
+    startsWith(speakername, "Cathay") ~ "Woman",
+    startsWith(speakername, "Cathy") ~ "Woman",
+    startsWith(speakername, "Candice") ~ "Woman",
+    startsWith(speakername, "Julie") ~ "Woman",
+    startsWith(speakername, "Sheri") ~ "Woman",
+    startsWith(speakername, "Kelly") ~ "Woman",
+    startsWith(speakername, "Bardish") ~ "Woman",
+    startsWith(speakername, "Emmanuella") ~ "Woman",
+    startsWith(speakername, "Lisa") ~ "Woman",
+    startsWith(speakername, "Eva") ~ "Woman",
+    startsWith(speakername, "Rosemarie") ~ "Woman",
+    startsWith(speakername, "Celina") ~ "Woman",
+    startsWith(speakername, "Judy") ~ "Woman",
+    startsWith(speakername, "Marilyn") ~ "Woman",
+    startsWith(speakername, "Kevin") ~ "Man", # go on to male MPs
+    startsWith(speakername, "John") ~ "Man",
+    startsWith(speakername, "Mark") ~ "Man",
+    startsWith(speakername, "TJ") ~ "Man",
+    startsWith(speakername, "Pat") ~ "Man",
+    startsWith(speakername, "Harjit") ~ "Man",
+    startsWith(speakername, "Steven") ~ "Man",
+    startsWith(speakername, "Arnold") ~ "Man",
+    startsWith(speakername, "Garnett") ~ "Man",
+    startsWith(speakername, "Pierre") ~ "Man",
+    startsWith(speakername, "Sean") ~ "Man",
+    startsWith(speakername, "Randy") ~ "Man",
+    startsWith(speakername, "Ted") ~ "Man",
+    startsWith(speakername, "Jim") ~ "Man",
+    startsWith(speakername, "Nick") ~ "Man",
+    startsWith(speakername, "Joël") ~ "Man",
+    startsWith(speakername, "Ken") ~ "Man",
+    startsWith(speakername, "Gérard") ~ "Man",
+    startsWith(speakername, "Fayçal") ~ "Man",
+    startsWith(speakername, "Todd") ~ "Man",
+    startsWith(speakername, "Terry") ~ "Man",
+    startsWith(speakername, "Bryan") ~ "Man",
+    startsWith(speakername, "Alupa") ~ "Man",
+    startsWith(speakername, "Rodger") ~ "Man",
+    startsWith(speakername, "Lloyd") ~ "Man",
+    startsWith(speakername, "Jati") ~ "Man",
+    startsWith(speakername, "Richard") ~ "Man",
+    startsWith(speakername, "Angelo") ~ "Man",
+    startsWith(speakername, "Harold") ~ "Man",
+    startsWith(speakername, "Robert") ~ "Man",
+    startsWith(speakername, "Ed") ~ "Man",
+    startsWith(speakername, "Gord") ~ "Man",
+    startsWith(speakername, "François") ~ "Man",
+    startsWith(speakername, "Rémi") ~ "Man",
+    startsWith(speakername, "Tom") ~ "Man",
   )) |>
-  select(speechdate, speechtext, speakerparty, speakerriding, speakername, speakergender)
+  select(speechdate, speechtext, speakerparty, speakerriding, speakername, speaker_gender)
+cleaned_hansard_data
+
+## Rename columns ##
+cleaned_hansard_data =
+  cleaned_hansard_data |>
+  rename(
+    speech_date = speechdate,
+    text = speechtext,
+    speaker_party = speakerparty,
+    speaker_riding = speakerriding,
+    speaker_name = speakername
+  ) |>
+select(speech_date, text, speaker_party, speaker_riding, speaker_name, speaker_gender)
 cleaned_hansard_data
 
 ## Create dataset with only Liberals ##
 LPC_cleaned_data =
   cleaned_hansard_data |>
-  filter(speakerparty == "Liberal")
+  filter(speaker_party == "Liberal")
 LPC_cleaned_data
 
 ## Create dataset with only Conservatives ##
 CPC_cleaned_data =
   cleaned_hansard_data |>
-  filter(speakerparty == "Conservative")
+  filter(speaker_party == "Conservative")
 CPC_cleaned_data
 
 ## Create dataset with only New Democrats ##
 NDP_cleaned_data =
   cleaned_hansard_data |>
-  filter(speakerparty == "New Democratic Party")
+  filter(speaker_party == "New Democratic Party")
 NDP_cleaned_data
 
 ## Create dataset with only Greens ##
 # Creating for now, but not enough interventions to model
 GPC_cleaned_data =
   cleaned_hansard_data |>
-  filter(speakerparty == "Green Party")
+  filter(speaker_party == "Green Party")
 GPC_cleaned_data
 
-## Create dataset of just female MPs ##
-female_mps_data =
+## Create dataset of just women MPs ##
+women_mps_data =
   cleaned_hansard_data |>
-  filter(speakergender == "Female")
-female_mps_data
+  filter(speaker_gender == "Woman")
+women_mps_data
 
-## Create dataset of just male MPs ##
-male_mps_data =
+## Create dataset of just men MPs ##
+men_mps_data =
   cleaned_hansard_data |>
-  filter(speakergender == "Male")
-male_mps_data
+  filter(speaker_gender == "Man")
+men_mps_data
 
 #### Save datasets ####
 write_csv(x = cleaned_hansard_data, file = "Outputs/Data/cleaned_hansard_data.csv")
@@ -158,6 +171,6 @@ write_csv(x = NDP_cleaned_data, file = "Outputs/Data/NDP_cleaned_data.csv")
 
 write_csv(x = GPC_cleaned_data, file = "Outputs/Data/GPC_cleaned_data.csv")
 
-write_csv(x = female_mps_data, file = "Outputs/Data/female_mps_cleaned_data.csv")
+write_csv(x = women_mps_data, file = "Outputs/Data/women_mps_cleaned_data.csv")
 
-write_csv(x = male_mps_data, file = "Outputs/Data/male_mps_cleaned_data.csv")
+write_csv(x = men_mps_data, file = "Outputs/Data/men_mps_cleaned_data.csv")

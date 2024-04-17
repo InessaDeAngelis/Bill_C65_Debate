@@ -33,23 +33,23 @@ show_col_types = FALSE
 GPC_cleaned_data <- read_csv("Outputs/Data/GPC_cleaned_data.csv")
 show_col_types = FALSE
 
-# Read in the Female MPs data #
-female_mps_data <- read_csv("Outputs/Data/female_mps_cleaned_data.csv")
+# Read in the Women MPs data #
+women_mps_data <- read_csv("Outputs/Data/women_mps_cleaned_data.csv")
 show_col_types = FALSE
 
-# Read in the Male MPs data #
-female_mps_data <- read_csv("Outputs/Data/male_mps_cleaned_data.csv")
+# Read in the Men MPs data #
+men_mps_data <- read_csv("Outputs/Data/men_mps_cleaned_data.csv")
 show_col_types = FALSE
 
 #### Testing - Main dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
@@ -62,16 +62,17 @@ nrow(cleaned_hansard_data) == 403
 
 #### Testing - LPC dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
+  
   confront(LPC_cleaned_data, rules)
 
 summary(out)
@@ -81,16 +82,17 @@ nrow(LPC_cleaned_data) == 176
 
 #### Testing - CPC dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
+  
   confront(CPC_cleaned_data, rules)
 
 summary(out)
@@ -100,16 +102,17 @@ nrow(CPC_cleaned_data) == 144
 
 #### Testing - NDP dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
+  
   confront(NDP_cleaned_data, rules)
 
 summary(out)
@@ -119,16 +122,17 @@ nrow(NDP_cleaned_data) == 81
 
 #### Testing - GPC dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
+  
   confront(GPC_cleaned_data, rules)
 
 summary(out)
@@ -138,39 +142,40 @@ nrow(GPC_cleaned_data) == 2
 
 #### Testing - Female MPs dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
-  confront(female_mps_data, rules)
+  
+  confront(women_mps_data, rules)
 
 summary(out)
 
 # Check number of rows is correct #
-nrow(female_mps_data) == 196
+nrow(women_mps_data) == 207
 
-#### Testing - Male MPs dataset ####
+#### Testing - Men MPs dataset ####
 rules <- validator(
-  is.Date(speechdate),
-  is.character(speechtext),
-  is.character(speakerparty),
-  is.character(speakerriding),
-  is.character(speakername),
-  is.character(speakergender),
-  speakergender %vin% c("Female", "Male") # Check to make sure the only options for 'gender' are male or female
+  is.Date(speech_date),
+  is.character(text),
+  is.character(speaker_party),
+  is.character(speaker_riding),
+  is.character(speaker_name),
+  is.character(speaker_gender),
+  speaker_gender %vin% c("Woman", "Man") # Check to make sure the only options for 'gender' are women or men
 )
 
 out <-
-  confront(male_mps_data, rules)
+  
+  confront(men_mps_data, rules)
 
 summary(out)
 
 # Check number of rows is correct #
-# (so a side note, it's intesting that there were the same number of interventions from male and female MPs)
-nrow(male_mps_data) == 196 
+nrow(men_mps_data) == 196 
