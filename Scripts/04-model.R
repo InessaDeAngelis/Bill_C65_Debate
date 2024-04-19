@@ -63,7 +63,7 @@ hansard_dfm <-
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
-  dfm_remove(stopwords(source = "snowball")) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
   dfm_remove(mystopwords)
 
 hansard_dfm
@@ -103,7 +103,7 @@ women_mps_dfm <-
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
-  dfm_remove(stopwords(source = "snowball")) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
   dfm_remove(mystopwords)
 
 women_mps_dfm
@@ -143,7 +143,7 @@ men_mps_dfm <-
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
-  dfm_remove(stopwords(source = "snowball")) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
   dfm_remove(mystopwords)
 
 men_mps_dfm
@@ -183,7 +183,7 @@ LPC_mps_dfm <-
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
-  dfm_remove(stopwords(source = "snowball")) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
   dfm_remove(mystopwords)
 
 LPC_mps_dfm 
@@ -223,7 +223,7 @@ CPC_mps_dfm <-
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
-  dfm_remove(stopwords(source = "snowball")) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
   dfm_remove(mystopwords)
 
 CPC_mps_dfm 
@@ -263,7 +263,7 @@ NDP_mps_dfm <-
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
-  dfm_remove(stopwords(source = "snowball")) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
   dfm_remove(mystopwords)
 
 NDP_mps_dfm 

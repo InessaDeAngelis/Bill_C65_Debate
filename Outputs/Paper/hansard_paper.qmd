@@ -31,11 +31,11 @@ library(here)
 # Full corpus model
 hansard_topics <- readRDS(here::here("Outputs/Model/hansard_topics.rda"))
 
-# Female MPs model
-female_mps_topics <- readRDS(here::here("Outputs/Model/female_mps_topics.rda"))
+# Women MPs model
+women_mps_topics <- readRDS(here::here("Outputs/Model/women_mps_topics.rda"))
 
-# Male MPs model
-male_mps_topics <- readRDS(here::here("Outputs/Model/male_mps_topics.rda"))
+# Men MPs model
+men_mps_topics <- readRDS(here::here("Outputs/Model/men_mps_topics.rda"))
 
 #LPC model
 lpc_mps_topics <- readRDS(here::here("Outputs/Model/lpc_mps_topics.rda"))
