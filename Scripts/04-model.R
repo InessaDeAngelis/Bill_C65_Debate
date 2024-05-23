@@ -60,6 +60,7 @@ hansard_dfm <-
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
+    remove_numbers = TRUE
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
@@ -78,7 +79,7 @@ write_rds(hansard_topics, file = "Outputs/Model/hansard_topics.rda")
 hansard_topics <- read_rds(file = "Outputs/Model/hansard_topics.rda")
 
 ## View model ##
-labelTopics(hansard_topics, 10)
+labelTopics(hansard_topics)
 
 plot(hansard_topics, type = "summary", text.cex = 0.5)
 
@@ -100,6 +101,7 @@ women_mps_dfm <-
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
+    remove_numbers = TRUE
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
@@ -140,6 +142,7 @@ men_mps_dfm <-
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
+    remove_numbers = TRUE
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
@@ -180,6 +183,7 @@ LPC_mps_dfm <-
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
+    remove_numbers = TRUE
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
@@ -220,6 +224,7 @@ CPC_mps_dfm <-
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
+    remove_numbers = TRUE
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
@@ -260,6 +265,7 @@ NDP_mps_dfm <-
   tokens(
     remove_punct = TRUE,
     remove_symbols = TRUE,
+    remove_numbers = TRUE
   ) |>
   dfm() |>
   dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
@@ -277,7 +283,7 @@ write_rds(ndp_mps_topics, file = "Outputs/Model/ndp_mps_topics.rda")
 ## Read in model ##
 ndp_mps_topics <- read_rds(file = "Outputs/Model/ndp_mps_topics.rda")
 
-## View model ##s
+## View model ##
 labelTopics(ndp_mps_topics)
 
 plot(ndp_mps_topics, type = "summary", text.cex = 0.5)
