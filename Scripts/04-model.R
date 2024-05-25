@@ -287,3 +287,286 @@ ndp_mps_topics <- read_rds(file = "Outputs/Model/ndp_mps_topics.rda")
 labelTopics(ndp_mps_topics)
 
 plot(ndp_mps_topics, type = "summary", text.cex = 0.5)
+
+#### Split models further, by both gender and party affiliation ####
+#### Liberal Women MPs ####
+## Filter dataset ##
+LPC_women_mps_data =
+women_mps_data |>
+  filter(speaker_party == "Liberal")
+LPC_women_mps_data
+  
+## Prepare text ## 
+LPC_women_mps_corpus <-
+  corpus(LPC_women_mps_data, 
+         text_field = "text")
+LPC_women_mps_corpus
+
+toks <- tokens(LPC_women_mps_corpus)
+
+# Create custom list of stop words #
+mystopwords <- c("mr", "madam", "speaker")
+char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
+
+LPC_women_mps_dfm <-
+  LPC_women_mps_corpus |>
+  tokens(
+    remove_punct = TRUE,
+    remove_symbols = TRUE,
+    remove_numbers = TRUE
+  ) |>
+  dfm() |>
+  dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
+  dfm_remove(mystopwords)
+
+LPC_women_mps_dfm
+
+## Make model ##
+LPC_women_mps_topics <- stm(documents = LPC_women_mps_dfm, K = 10)
+
+## Save model ##
+write_rds(LPC_women_mps_topics, file = "Outputs/Model/LPC_women_mps_topics.rda")
+
+## Read in model ##
+LPC_women_mps_topics <- read_rds(file = "Outputs/Model/LPC_women_mps_topics.rda")
+
+## View model ##
+labelTopics(LPC_women_mps_topics)
+
+plot(LPC_women_mps_topics, type = "summary", text.cex = 0.5)
+
+#### Liberal Men MPs ####
+## Filter dataset ##
+LPC_men_mps_data =
+  men_mps_data |>
+  filter(speaker_party == "Liberal")
+LPC_men_mps_data
+
+## Prepare text ## 
+LPC_men_mps_corpus <-
+  corpus(LPC_men_mps_data, 
+         text_field = "text")
+LPC_men_mps_corpus
+
+toks <- tokens(LPC_men_mps_corpus)
+
+# Create custom list of stop words #
+mystopwords <- c("mr", "madam", "speaker")
+char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
+
+LPC_men_mps_dfm <-
+  LPC_men_mps_corpus |>
+  tokens(
+    remove_punct = TRUE,
+    remove_symbols = TRUE,
+    remove_numbers = TRUE
+  ) |>
+  dfm() |>
+  dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
+  dfm_remove(mystopwords)
+
+LPC_men_mps_dfm
+
+## Make model ##
+LPC_men_mps_topics <- stm(documents = LPC_men_mps_dfm, K = 10)
+
+## Save model ##
+write_rds(LPC_men_mps_topics, file = "Outputs/Model/LPC_men_mps_topics.rda")
+
+## Read in model ##
+LPC_men_mps_topics <- read_rds(file = "Outputs/Model/LPC_men_mps_topics.rda")
+
+## View model ##
+labelTopics(LPC_men_mps_topics)
+
+plot(LPC_men_mps_topics, type = "summary", text.cex = 0.5)
+
+#### Conservative Women MPs ####
+## Filter dataset ##
+CPC_women_mps_data =
+  women_mps_data |>
+  filter(speaker_party == "Conservative")
+CPC_women_mps_data
+
+## Prepare text ## 
+CPC_women_mps_corpus <-
+  corpus(CPC_women_mps_data, 
+         text_field = "text")
+CPC_women_mps_corpus
+
+toks <- tokens(CPC_women_mps_corpus)
+
+# Create custom list of stop words #
+mystopwords <- c("mr", "madam", "speaker")
+char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
+
+CPC_women_mps_dfm <-
+  CPC_women_mps_corpus |>
+  tokens(
+    remove_punct = TRUE,
+    remove_symbols = TRUE,
+    remove_numbers = TRUE
+  ) |>
+  dfm() |>
+  dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
+  dfm_remove(mystopwords)
+
+CPC_women_mps_dfm
+
+## Make model ##
+CPC_women_mps_topics <- stm(documents = CPC_women_mps_dfm, K = 10)
+
+## Save model ##
+write_rds(CPC_women_mps_topics, file = "Outputs/Model/CPC_women_mps_topics.rda")
+
+## Read in model ##
+CPC_women_mps_topics <- read_rds(file = "Outputs/Model/CPC_women_mps_topics.rda")
+
+## View model ##
+labelTopics(CPC_women_mps_topics)
+
+plot(CPC_women_mps_topics, type = "summary", text.cex = 0.5)
+
+#### Conservative Men MPs ####
+## Filter dataset ##
+CPC_men_mps_data =
+  men_mps_data |>
+  filter(speaker_party == "Conservative")
+CPC_men_mps_data
+
+## Prepare text ## 
+CPC_men_mps_corpus <-
+  corpus(CPC_men_mps_data, 
+         text_field = "text")
+CPC_men_mps_corpus
+
+toks <- tokens(CPC_men_mps_corpus)
+
+# Create custom list of stop words #
+mystopwords <- c("mr", "madam", "speaker")
+char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
+
+CPC_men_mps_dfm <-
+  CPC_men_mps_corpus |>
+  tokens(
+    remove_punct = TRUE,
+    remove_symbols = TRUE,
+    remove_numbers = TRUE
+  ) |>
+  dfm() |>
+  dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
+  dfm_remove(mystopwords)
+
+CPC_men_mps_dfm
+
+## Make model ##
+CPC_men_mps_topics <- stm(documents = CPC_men_mps_dfm, K = 10)
+
+## Save model ##
+write_rds(CPC_men_mps_topics, file = "Outputs/Model/CPC_men_mps_topics.rda")
+
+## Read in model ##
+CPC_men_mps_topics <- read_rds(file = "Outputs/Model/CPC_men_mps_topics.rda")
+
+## View model ##
+labelTopics(CPC_men_mps_topics)
+
+plot(CPC_men_mps_topics, type = "summary", text.cex = 0.5)
+
+#### New Democratic Women MPs ####
+## Filter dataset ##
+NDP_women_mps_data =
+  women_mps_data |>
+  filter(speaker_party == "New Democratic Party")
+NDP_women_mps_data
+
+## Prepare text ## 
+NDP_women_mps_corpus <-
+  corpus(NDP_women_mps_data, 
+         text_field = "text")
+NDP_women_mps_corpus
+
+toks <- tokens(NDP_women_mps_corpus)
+
+# Create custom list of stop words #
+mystopwords <- c("mr", "madam", "speaker")
+char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
+
+NDP_women_mps_dfm <-
+  NDP_women_mps_corpus |>
+  tokens(
+    remove_punct = TRUE,
+    remove_symbols = TRUE,
+    remove_numbers = TRUE
+  ) |>
+  dfm() |>
+  dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
+  dfm_remove(mystopwords)
+
+NDP_women_mps_dfm
+
+## Make model ##
+NDP_women_mps_topics <- stm(documents = NDP_women_mps_dfm, K = 10)
+
+## Save model ##
+write_rds(NDP_women_mps_topics, file = "Outputs/Model/NDP_women_mps_topics.rda")
+
+## Read in model ##
+NDP_women_mps_topics <- read_rds(file = "Outputs/Model/NDP_women_mps_topics.rda")
+
+## View model ##
+labelTopics(NDP_women_mps_topics)
+
+plot(NDP_women_mps_topics, type = "summary", text.cex = 0.5)
+
+#### New Democratic Men MPs ####
+## Filter dataset ##
+NDP_men_mps_data =
+  men_mps_data |>
+  filter(speaker_party == "New Democratic Party")
+NDP_men_mps_data
+
+## Prepare text ## 
+NDP_men_mps_corpus <-
+  corpus(NDP_men_mps_data, 
+         text_field = "text")
+NDP_men_mps_corpus
+
+toks <- tokens(NDP_men_mps_corpus)
+
+# Create custom list of stop words #
+mystopwords <- c("mr", "madam", "speaker")
+char_select(mystopwords, c("mr", "madam", "speaker"), selection = "remove")
+
+NDP_men_mps_dfm <-
+  NDP_men_mps_corpus |>
+  tokens(
+    remove_punct = TRUE,
+    remove_symbols = TRUE,
+    remove_numbers = TRUE
+  ) |>
+  dfm() |>
+  dfm_trim(min_termfreq = 2, min_docfreq = 2, ) |>
+  dfm_remove(stopwords(source = "stopwords-iso")) |>
+  dfm_remove(mystopwords)
+
+NDP_men_mps_dfm
+
+## Make model ##
+NDP_men_mps_topics <- stm(documents = NDP_men_mps_dfm, K = 10)
+
+## Save model ##
+write_rds(NDP_men_mps_topics, file = "Outputs/Model/NDP_men_mps_topics.rda")
+
+## Read in model ##
+NDP_men_mps_topics <- read_rds(file = "Outputs/Model/NDP_men_mps_topics.rda")
+
+## View model ##
+labelTopics(NDP_men_mps_topics)
+
+plot(NDP_men_mps_topics, type = "summary", text.cex = 0.5)
